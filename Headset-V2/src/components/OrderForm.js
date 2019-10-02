@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class OrderForm extends React.Component {
     constructor() {
@@ -23,9 +24,26 @@ class OrderForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
         console.log(this.state);
+        const { fname, lname, email, phone, ponum, prod531, prod532, prod561sb, prod561mb, prod562sb, prod562mb, totalcount, note } = this.state
+        
+        const form = await axios.post('/api/form', {
+            fname,
+            lname,
+            email, 
+            phone,
+            ponum,
+            prod531,
+            prod532,
+            prod561sb,
+            prod561mb,
+            prod562sb,
+            prod562mb,
+            totalcount,
+            note
+        })
     }
 // Product 531
     handleIncProd531 = (e) => {
@@ -196,7 +214,7 @@ class OrderForm extends React.Component {
                     />
                     <div>
                     <div>
-                        <img src="../../images/531.png" width='10%' />
+                        <img src="images/531.png" width='10%' />
                         <p>Cisco Headset 531</p>
                         <p>This is a single-ear, wired headset.</p>
                         <a>MORE</a>
@@ -220,7 +238,7 @@ class OrderForm extends React.Component {
                     </div>
                     {/*  spacer */}
                     <div>
-                        <img src="../../images/532.png" width='10%' />
+                        <img src="images/532.png" width='10%' />
                         <p>Cisco Headset 532</p>
                         <p>This is a dual-ear, wired headset.</p>
                         <a>MORE</a>
@@ -243,7 +261,7 @@ class OrderForm extends React.Component {
                     </div>
                     {/* spacer */}
                     <div>
-                        <img src="../../images/561sb.png" width='10%' />
+                        <img src="images/561sb.png" width='10%' />
                         <p>Cisco Headset 561 (Standard)</p>
                         <p>This is a single-ear, wireless headset with a Standard Base.</p>
                         <a>MORE</a>
@@ -266,7 +284,7 @@ class OrderForm extends React.Component {
                     </div>
                     {/* spacer */}
                     <div>
-                        <img src="../../images/561mb.png" width='10%' />
+                        <img src="images/561mb.png" width='10%' />
                         <p>Cisco Headset 561 (Multibase)</p>
                         <p>This is a single-ear, wireless headset with a Multi-Base.</p>
                         <a>MORE</a>
@@ -289,7 +307,7 @@ class OrderForm extends React.Component {
                     </div>
                     {/* spacer */}
                     <div>
-                        <img src="../../images/562sb.png" width='10%' />
+                        <img src="images/562sb.png" width='10%' />
                         <p>Cisco Headset 562 (Standard)</p>
                         <p>This is a single-ear, wireless headset with a Standard Base.</p>
                         <a>MORE</a>
@@ -312,7 +330,7 @@ class OrderForm extends React.Component {
                     </div>
                     {/* spacer */}
                     <div>
-                        <img src="../../images/562mb.png" width='10%' />
+                        <img src="images/562mb.png" width='10%' />
                         <p>Cisco Headset 562 (Multibase)</p>
                         <p>This is a dual-ear, wireless headset with a Multi-Base.</p>
                         <a>MORE</a>
