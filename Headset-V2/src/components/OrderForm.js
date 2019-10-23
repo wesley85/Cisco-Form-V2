@@ -18,8 +18,6 @@ class OrderForm extends React.Component {
             prod562mb: 0,
             totalcount: 0,
             note: '',
-            mailSent: false,
-            error: null
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -29,7 +27,7 @@ class OrderForm extends React.Component {
         console.log(this.state);
         const { fname, lname, email, phone, ponum, prod531, prod532, prod561sb, prod561mb, prod562sb, prod562mb, totalcount, note } = this.state
         
-        const form = await axios.post('/api/form', {
+        const form = await axios.post('/wes_test/', {
             fname,
             lname,
             email, 
